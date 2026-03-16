@@ -13,18 +13,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         val buttonGoToA = findViewById<Button>(R.id.buttonGoToA)
-        // Los botones B y C están desactivados en el XML, pero aquí se podrían configurar después
-        
         buttonGoToA.setOnClickListener {
             val intent = Intent(this, SendTextActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Punto C: abrir la pantalla que simula ser un manejador de SMS
+        val buttonGoToC = findViewById<Button>(R.id.buttonGoToC)
+        buttonGoToC.isEnabled = true
+        buttonGoToC.setOnClickListener {
+            val intent = Intent(this, SmsHandlerActivity::class.java)
             startActivity(intent)
         }
     }
