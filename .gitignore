@@ -1,15 +1,132 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# =============================================
+#   .gitignore para Proyecto Android Studio
+# =============================================
+
+
+# -----------------------------------------------
+# Gradle
+# -----------------------------------------------
+.gradle/
+build/
+**/build/
+gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
 local.properties
+*.hprof
+
+
+# -----------------------------------------------
+# Android Studio / IntelliJ IDEA
+# -----------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/deploymentTargetSelector.xml
+captures/
+
+
+# -----------------------------------------------
+# Archivos del sistema operativo
+# -----------------------------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.nfs*
+
+
+# -----------------------------------------------
+# Claves, secretos y configuración local
+# -----------------------------------------------
+*.jks
+*.keystore
+*.p12
+*.pfx
+keystore.properties
+secrets.properties
+google-services.json
+GoogleService-Info.plist
+*.env
+*.env.*
+.env.local
+
+
+# -----------------------------------------------
+# Archivos generados / compilados
+# -----------------------------------------------
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.so
+gen/
+out/
+release/
+bin/
+
+
+# -----------------------------------------------
+# Lint y reportes
+# -----------------------------------------------
+lint/
+*.lint
+lint-results*
+lint.xml
+
+
+# -----------------------------------------------
+# Profiling y crash reports
+# -----------------------------------------------
+*.hprof
+*.trace
+
+
+# -----------------------------------------------
+# NDK / C++ (si aplica)
+# -----------------------------------------------
+.externalNativeBuild/
+.cxx/
+
+
+# -----------------------------------------------
+# Test y cobertura
+# -----------------------------------------------
+.test-results/
+*.exec
+jacoco/
+
+
+# -----------------------------------------------
+# Otros
+# -----------------------------------------------
+*.log
+*.tmp
+*.bak
+*.swp
+*.orig
