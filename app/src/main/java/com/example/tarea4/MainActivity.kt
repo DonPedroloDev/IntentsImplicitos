@@ -19,13 +19,20 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         val buttonGoToA = findViewById<Button>(R.id.buttonGoToA)
         buttonGoToA.setOnClickListener {
             val intent = Intent(this, SendTextActivity::class.java)
             startActivity(intent)
         }
 
-        // Punto C: abrir la pantalla que simula ser un manejador de SMS
+        val buttonGoToB = findViewById<Button>(R.id.buttonGoToB)
+        buttonGoToB.isEnabled = true
+        buttonGoToB.setOnClickListener {
+            val intent = Intent(this, TakePhotoActivity::class.java)
+            startActivity(intent)
+        }
+
         val buttonGoToC = findViewById<Button>(R.id.buttonGoToC)
         buttonGoToC.isEnabled = true
         buttonGoToC.setOnClickListener {
