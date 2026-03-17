@@ -28,6 +28,11 @@
             android:exported="false"
             android:label="Punto A: Enviar Mensaje" />
 
+        <!-- Punto B: Usar una aplicacion para tomar una foto, traerla y mostrarla -->
+        <activity
+            android:name=".TakePhotoActivity"
+            android:exported="false"
+            android:label="Punto B: Tomar Foto" />
         <!--
             Punto C: nuestra app se registra como manejadora de SMS.
             Los intent-filters le dicen al sistema que esta Activity
