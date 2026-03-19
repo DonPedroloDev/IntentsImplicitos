@@ -50,12 +50,7 @@ class SmsHandlerActivity : AppCompatActivity() {
         procesarIntent(intent)
     }
 
-    /**
-     * Aquí está el núcleo del Punto C.
-     *
-     * Cuando otra app quiere enviar un SMS y el usuario elige esta app,
-     * Android nos llama con ese intent. Lo recibimos y extraemos los datos.
-     */
+
     private fun procesarIntent(intent: Intent?) {
         if (intent == null) {
             mostrarEspera()
@@ -64,8 +59,7 @@ class SmsHandlerActivity : AppCompatActivity() {
 
         when (intent.action) {
 
-            // ACTION_SENDTO: intent estándar de SMS
-            // La URI viene con formato "smsto:5512345678" o "sms:5512345678"
+            // SENDTO: intent estándar de SMS
             Intent.ACTION_SENDTO -> {
                 val uri: Uri? = intent.data
                 val numero  = uri?.schemeSpecificPart ?: "Sin número"
@@ -73,7 +67,7 @@ class SmsHandlerActivity : AppCompatActivity() {
                 mostrarDatos(numero, mensaje)
             }
 
-            // ACTION_SEND: cuando otra app comparte texto plano y el usuario elige esta app
+            //SEND: Otra app
             Intent.ACTION_SEND -> {
                 if (intent.type == "text/plain") {
                     val mensaje = intent.getStringExtra(Intent.EXTRA_TEXT) ?: "Sin texto"
@@ -82,7 +76,7 @@ class SmsHandlerActivity : AppCompatActivity() {
                 }
             }
 
-            // Se abrió directo desde MainActivity (sin intent externo)
+            // Se abrió directo desde MainActivity
             else -> mostrarEspera()
         }
     }
@@ -105,9 +99,5 @@ class SmsHandlerActivity : AppCompatActivity() {
         val numero = tvNumero.text.toString().removePrefix("Para: ")
         Toast.makeText(this, "SMS simulado enviado a $numero", Toast.LENGTH_LONG).show()
         tvEstado.text = "✅ Mensaje enviado (simulado)"
-
-        // Si quisieran mandar el SMS de verdad, sería así:
-        // val smsManager = SmsManager.getDefault()
-        // smsManager.sendTextMessage(numero, null, mensaje, null, null)
     }
 }

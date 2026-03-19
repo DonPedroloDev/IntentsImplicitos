@@ -44,22 +44,18 @@
             android:exported="true"
             android:label="Punto C: SMS Handler">
 
-            <!-- smsto: esquema estándar cuando la app origen ya tiene el número -->
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="smsto" />
             </intent-filter>
 
-            <!-- sms: esquema alternativo usado por algunas apps -->
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="sms" />
             </intent-filter>
 
-            <!-- ACTION_SEND texto plano: cuando el punto A de tus compañeros
-                 usa createChooser, nuestra app aparece aquí como opción -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
